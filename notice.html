@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* 전체 스타일 */
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        }
+        /* Main 영역 */
+        main {
+        width: 80%;
+        background-color: #fff; /* 배경색 하얀색 */
+        padding: 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* X축 가운데 정렬 */
+        }
+
+
+        /* 공지사항 테이블 스타일 */
+        .notice-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        text-align: center;
+        }
+
+        .notice-table th,
+        .notice-table td {
+        padding: 10px;
+        }
+
+        .notice-table th:first-child,
+        .notice-table td:first-child {
+        width: 10%; /* 번호 열 */
+        }
+
+        .notice-table th:last-child,
+        .notice-table td:last-child {
+        width: 15%; /* 작성일 열 */
+        }
+
+        .notice-table th {
+        font-weight: bold;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        }
+
+        .notice-table td {
+        border-bottom: 1px solid #ddd;
+        }
+
+        .notice-table td.title {
+        text-align: left;
+        }
+
+        /* 페이지네이션 */
+        .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        }
+
+        .pagination button {
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        transition: background-color 0.3s ease;
+        background-color: transparent; /* 버튼 배경 제거 */
+        }
+
+        .pagination button.active {
+        background-color: #ccc; /* 클릭된 버튼 색상 회색 */
+        color: #000;
+        }
+
+        .pagination button:hover {
+        background-color: #f0f0f0;
+        }
+
+        .pagination button:disabled {
+        background-color: #ddd;
+        cursor: not-allowed;
+        }
+
+        .pagination img {
+        width: 20px;
+        height: 20px;
+        }
+
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- Logo Section -->
+    <a href="main.html" class="logo">
+      <img src="Images/logo.jpg" alt="홈 로고">
+    </a>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">위반내역 조회</a></li>
+        <li class="nav-item"><a href="#">이의신청</a></li>
+        <li class="nav-item"><a href="#">면허 확인</a></li>
+        <li class="nav-item"><a href="#">서비스 신청</a></li>
+        <li class="nav-item"><a href="#">고객센터</a></li>
+
+      </ul>
+      <!-- Dropdown content -->
+      <div class="dropdown-box">
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="recentCrackdown.html">최근 단속내역</a></li>
+            </ul>
+          <ul>
+            <li><a href="#">미납 이력</a></li>
+            <li><a href="#">미납 과태료</a></li>
+            <li><a href="#">미납 범칙금</a></li>
+            
+          </ul>
+          <ul>
+            <li><a href="#">납입 이력</a></li>
+            <li><a href="#">기납 과태료</a></li>
+            <li><a href="#">기납 범칙금</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">교통사고 사실확인</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="#">과태료 이의신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">범칙금 이의신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">이중납부 환급신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">법인 신청</a></li>
+            </ul>
+          </div>
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="#">면허증 진위확인</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">벌점 확인</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">면허제재 이력</a></li>
+              <li><a href="#">면허정지 기간</a></li>
+              <li><a href="#">면허결격 기간</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">결격사유 공고</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="#">착한운전 마일리지</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">교통사고 조사예약</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">문자 알림 서비스</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">모바일전자고지 안내</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">공인전자주소 안내</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="notice.html">공지사항</a></li>
+          </ul>
+          <ul>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">사이트맵</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">이파인 궁금이 챗봇</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Right Section (Login, Search, Menu) -->
+    <div class="header-buttons">
+      <button class="login-btn" style="font-size: 15px;">로그인</button>
+      <button class="search-btn">
+        <img src="Images/icon_search.png" alt="검색" class="search-icon" width="30px">
+      </button>
+      <button class="search-btn">
+        <img src="Images/icon_menubar.png" alt="검색" class="search-icon" width="30px">
+      </button>
+    </div>
+  </header>
+
+   <!-- 검색 바 -->
+   <div class="search-bar-container" id="search-bar">
+    <div class="search-bar">
+      <input type="text" placeholder="검색어를 입력하세요...">
+      <button>
+        <img src="Images/icon_search.png" alt="검색">
+      </button>
+    </div>
+  </div>
+  <!-- 화면 어두워지는 오버레이 -->
+  <div class="overlay" id="overlay"></div>
+ <!-- ================================== main ==================================== -->
+ 
+
+    <div class="main-container">
+        <!-- 좌측 사이드바 -->
+        <aside class="sidebar">
+        <h2>고객센터</h2>
+        <ul>
+            <li class="active"><a href="notice.html">공지사항</a></li>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+            <li>매장찾기</li>
+            <li>서비스 안내</li>
+        </ul>
+        </aside>
+
+        <main>
+            <!-- 페이지 제목 -->
+            <div class="main-title">공지사항</div>
+
+            <!-- 공지사항 테이블 -->
+            <table class="notice-table">
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성일</th>
+                </tr>
+                </thead>
+                <tbody id="notice-tbody">
+                <!-- 공지사항 데이터 삽입 -->
+                </tbody>
+            </table>
+
+            <!-- 페이지네이션 -->
+            <div class="pagination">
+                <button id="prev-page" onclick="prevPage()" aria-label="이전 페이지">&lt;</button>
+                <div id="page-buttons"></div>
+                <button id="next-page" onclick="nextPage()" aria-label="다음 페이지">&gt;</button>
+              </div>
+
+            
+
+        </main>
+    </div>
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">개인정보처리방침</a> | 
+      <a href="#">사이트맵</a> | 
+      <a href="#">이용안내</a>
+      <p>우 03739 서울특별시 서대문구 통일로 97</p>
+      <p>민원전화: 182 (유료)</p>
+      <p>Copyright © 2024 경찰청 All Rights Reserved.</p>
+    </div>
+    <div class="footer-empty-section">
+    </div>
+    <div class="family-site">
+        <h4>패밀리사이트</h4>
+        <select>
+          <option>관련기관 홈페이지 바로가기</option>
+          <option>경찰청</option>
+          <option>도로교통공단</option>
+        </select>
+    </div>
+
+  </footer>
+  
+
+  <script src="script.js"></script>
+  <script>
+    const notices = [
+        { 번호: 17, 제목: "디브레인 자료전송 일시중단 안내(1/23~1/24)", 작성일: "2015.01.23" },
+        { 번호: 16, 제목: "교통과태료,범칙금 스미싱 주의 안내", 작성일: "2015.01.06" },
+        { 번호: 15, 제목: "디브레인 자료전송 일시중단 안내(12/12~12/13)", 작성일: "2014.12.12" },
+        { 번호: 14, 제목: "교통고지서 샵(#)메일 수신 안내", 작성일: "2014.11.25" },
+        { 번호: 13, 제목: "무인단속 및 영상단속 사진 확인방법", 작성일: "2014.11.10" },
+        { 번호: 12, 제목: "이파인시스템 정상서비스 안내", 작성일: "2014.09.07" },
+        { 번호: 11, 제목: "eFINE 서비스 일시중단 안내", 작성일: "2014.08.27" },
+        { 번호: 10, 제목: "착한운전 마일리지 적립", 작성일: "2014.08.06" },
+        { 번호: 9, 제목: "운전면허 진위여부 서비스 변경안내", 작성일: "2014.08.06" },
+        { 번호: 8, 제목: "인터넷지로 사이트 일시중단 안내", 작성일: "2014.08.01" },
+        { 번호: 7, 제목: "디브레인 자료전송 일시중단 안내(7/19~7/20)", 작성일: "2014.07.15" },
+        { 번호: 6, 제목: "보안상 화면을 복사하거나 출력할 수 없습니다. 운전경력증명서를 이용하시기 바랍니다.", 작성일: "2014.03.25" },
+        { 번호: 5, 제목: "디브레인 고지정보 지연안내", 작성일: "2014.03.19" },
+        { 번호: 4, 제목: "운전면허관련 조회의 내역 없음에 대한 안내", 작성일: "2014.01.29" },
+        { 번호: 3, 제목: "운전면허 행정처분 특별감면 실시!!", 작성일: "2014.01.28" },
+        { 번호: 2, 제목: "교통범칙금·과태료 조회 및 납부시스템(efine)이 더욱 새로워집니다.", 작성일: "2014.01.12" },
+        { 번호: 1, 제목: "교통범칙금 관련 스미싱 피해예방 안내", 작성일: "2013.10.25" },
+        ];
+
+
+    const rowsPerPage = 5;
+    let currentPage = 1;
+
+    function displayNotices() {
+      const tbody = document.getElementById("notice-tbody");
+      tbody.innerHTML = "";
+
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = startIndex + rowsPerPage;
+
+      const currentNotices = notices.slice(startIndex, endIndex);
+      currentNotices.forEach((notice) => {
+        const row = `
+          <tr>
+            <td>${notice.번호}</td>
+            <td class="title">${notice.제목}</td>
+            <td>${notice.작성일}</td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      });
+    }
+
+    function setupPagination() {
+      const pageButtons = document.getElementById("page-buttons");
+      pageButtons.innerHTML = "";
+
+      const totalPages = Math.ceil(notices.length / rowsPerPage);
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.classList.toggle("active", i === currentPage);
+        button.onclick = () => {
+          currentPage = i;
+          displayNotices();
+          setupPagination();
+        };
+        pageButtons.appendChild(button);
+      }
+
+      document.getElementById("prev-page").disabled = currentPage === 1;
+      document.getElementById("next-page").disabled = currentPage === totalPages;
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        displayNotices();
+        setupPagination();
+      }
+    }
+
+    function nextPage() {
+      const totalPages = Math.ceil(notices.length / rowsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayNotices();
+        setupPagination();
+      }
+    }
+
+    // 초기화
+    displayNotices();
+    setupPagination();
+
+  </script>
+</body>
+</html>

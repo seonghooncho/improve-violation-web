@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* 전체 스타일 */
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        }
+
+        /* Main 영역 */
+      main {
+        width: 80%;
+        background-color: #fff; /* 배경색 하얀색 */
+        padding: 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* X축 가운데 정렬 */
+      }
+
+
+        /* FAQ 카테고리 */
+        .faq-categories {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 20px;
+        }
+
+        .faq-categories .faq-category {
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 2px;
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        text-align: center;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-categories .faq-category.active {
+        background-color: #858585;
+        color: #fff;
+        }
+
+        .faq-categories .faq-category:hover {
+        background-color: #ddd;
+        color: #004990;
+        }
+
+        /* FAQ 콘텐츠 */
+        .faq-content {
+        width: 100%;
+        max-width: 800px;
+        }
+
+        .faq-content h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+        }
+
+        .faq-item {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+        }
+
+        .faq-question {
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .faq-question:hover {
+        color: #475ef0;
+        }
+
+        .faq-answer {
+        display: none;
+        padding: 10px 0 0;
+        font-size: 16px;
+        color: #666;
+        }
+
+        .faq-icon {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+        }
+
+        .faq-icon.open {
+        transform: rotate(45deg);
+        }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- Logo Section -->
+    <a href="main.html" class="logo">
+      <img src="Images/logo.jpg" alt="홈 로고">
+    </a>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">위반내역 조회</a></li>
+        <li class="nav-item"><a href="#">이의신청</a></li>
+        <li class="nav-item"><a href="#">면허 확인</a></li>
+        <li class="nav-item"><a href="#">서비스 신청</a></li>
+        <li class="nav-item"><a href="#">고객센터</a></li>
+
+      </ul>
+      <!-- Dropdown content -->
+      <div class="dropdown-box">
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="recentCrackdown.html">최근 단속내역</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">미납 이력</a></li>
+            <li><a href="#">미납 과태료</a></li>
+            <li><a href="#">미납 범칙금</a></li>
+            
+          </ul>
+          <ul>
+            <li><a href="#">납입 이력</a></li>
+            <li><a href="#">기납 과태료</a></li>
+            <li><a href="#">기납 범칙금</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">교통사고 사실확인</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="#">과태료 이의신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">범칙금 이의신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">이중납부 환급신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">법인 신청</a></li>
+            </ul>
+          </div>
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="#">면허증 진위확인</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">벌점 확인</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">면허제재 이력</a></li>
+              <li><a href="#">면허정지 기간</a></li>
+              <li><a href="#">면허결격 기간</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">결격사유 공고</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="#">착한운전 마일리지</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">교통사고 조사예약</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">문자 알림 서비스</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">모바일전자고지 안내</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">공인전자주소 안내</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="notice.html">공지사항</a></li>
+          </ul>
+          <ul>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">사이트맵</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">이파인 궁금이 챗봇</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Right Section (Login, Search, Menu) -->
+    <div class="header-buttons">
+      <button class="login-btn" style="font-size: 15px;">로그인</button>
+      <button class="search-btn">
+        <img src="Images/icon_search.png" alt="검색" class="search-icon" width="30px">
+      </button>
+      <button class="search-btn">
+        <img src="Images/icon_menubar.png" alt="검색" class="search-icon" width="30px">
+      </button>
+    </div>
+  </header>
+   <!-- 검색 바 -->
+   <div class="search-bar-container" id="search-bar">
+    <div class="search-bar">
+      <input type="text" placeholder="검색어를 입력하세요...">
+      <button>
+        <img src="Images/icon_search.png" alt="검색">
+      </button>
+    </div>
+  </div>
+  <!-- 화면 어두워지는 오버레이 -->
+  <div class="overlay" id="overlay"></div>
+
+ <!-- ================================== main ==================================== -->
+ 
+
+    <div class="main-container">
+        <!-- 좌측 사이드바 -->
+        <aside class="sidebar">
+        <h2>고객센터</h2>
+        <ul>
+            <li><a href="notice.html">공지사항</a></li>
+            <li class="active"><a href="faq.html">자주 묻는 질문</a></li>
+            <li>매장찾기</li>
+            <li>서비스 안내</li>
+        </ul>
+        </aside>
+
+        <!-- FAQ 메인 -->
+        <main>
+          <!-- 페이지 제목 -->
+          <div class="main-title">자주 묻는 질문 (FAQ)</div>
+
+          <!-- FAQ 카테고리 -->
+          <div class="faq-categories">
+              <div class="faq-category active" data-category="license">운전면허 관련</div>
+              <div class="faq-category" data-category="international">국제 및 영문 운전면허증</div>
+              <div class="faq-category" data-category="laws">교통법규 및 과태료</div>
+              <div class="faq-category" data-category="special">특별 상황 및 민원</div>
+              <div class="faq-category" data-category="others">기타 교통 정보</div>
+          </div>
+
+          <!-- FAQ 콘텐츠 -->
+          <div class="faq-content">
+              
+              <!-- 운전면허 관련 -->
+              <section class="faq-section" id="license">
+                  <h3>운전면허 관련</h3>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          운전면허증을 분실했는데 분실신고는 어디서 하나요?
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          ■ 분실신고만 신청: 전국 경찰서 민원실 방문 (대리인 접수 불가)<br>
+                          ■ 분실신고와 동시에 재발급 신청: 도로교통공단 안전운전 통합민원(www.safedriving.or.kr), 경찰민원포털(minwon.police.go.kr) 또는 운전면허시험장 방문
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          고령운전자라 운전면허증을 반납하고 싶어요.
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          가까운 운전면허시험장, 경찰서 교통민원실 또는 주민센터에서 자진반납이 가능합니다. 방문 전 업무처리 가능 여부를 확인해주세요.
+                      </div>
+                  </div>
+              </section>
+
+              <!-- 국제 및 영문 운전면허증 -->
+              <section class="faq-section" id="international">
+                  <h3>국제 및 영문 운전면허증</h3>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          출국해야 하는데 급히 국제운전면허증이 필요해요.
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          공항 내 국제운전면허 발급센터에서 발급 가능합니다. 신분증과 6개월 이내 촬영한 사진(3.5cm x 4.5cm)을 지참하고 방문하세요.
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          영문운전면허증을 발급 받고 싶은데요.
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          경찰서 또는 운전면허시험장에서 발급 가능합니다. 필요한 서류: 신분증, 여권 사본, 수수료 10,000원
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          (영문)운전경력증명서는 어디서 발급받을 수 있나요?
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          신분증을 지참하여 가까운 경찰서에 방문하거나 인터넷 정부24(www.gov.kr), 교통민원24(www.efine.go.kr)를 통해 발급 가능합니다.
+                      </div>
+                  </div>
+              </section>
+
+              <!-- 교통법규 및 과태료 -->
+              <section class="faq-section" id="laws">
+                  <h3>교통법규 및 과태료</h3>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          과태료와 범칙금의 차이점이 뭔가요?
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          과태료: 무인단속 등 행위자를 특정할 수 없는 경우 차량 소유자에게 부과<br>
+                          범칙금: 현장에서 경찰관에 의해 행위자에게 부과
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          과태료 감경 대상자를 알고 싶어요.
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          경미한 위반 행위에 대한 과태료는 자진납부 시 20% 감경되며, 추가적으로 대상자의 조건에 따라 최대 50% 감경됩니다.
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          과태료를 범칙금으로 전환하는 방법을 알고 싶어요.
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          가까운 경찰서, 지구대, 파출소 방문 또는 인터넷 교통민원24(www.efine.go.kr)를 통해 전환 가능합니다.
+                      </div>
+                  </div>
+              </section>
+
+              <!-- 특별 상황 및 민원 -->
+              <section class="faq-section" id="special">
+                  <h3>특별 상황 및 민원</h3>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          운전이 유일한 생계수단인데, 면허취소 구제방법이 있나요?
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          생계형 운전자를 위한 이의신청 제도가 있습니다. 취소처분 결정 통지 후 60일 이내에 주소지 관할 경찰청에 접수하세요.
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          교통사고 조사결과에 이의가 있는 경우 어떻게 하나요?
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          조사받은 경찰서 관할 시·도 경찰청 민원실로 방문하거나 경찰민원포털(minwon.police.go.kr)에서 이의신청이 가능합니다.
+                      </div>
+                  </div>
+              </section>
+
+              <!-- 기타 교통 정보 -->
+              <section class="faq-section" id="others">
+                  <h3>기타 교통 정보</h3>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          무인단속카메라에 단속된 것 같은데 확인하고 싶어요.
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          단속 여부는 5~7일 후 인터넷 교통민원24(www.efine.go.kr) 또는 182콜센터에서 확인 가능합니다.
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <div class="faq-question">
+                          주민등록상 주소지와 실거주지가 다른데 과태료 고지서를 받을 수 있나요?
+                          <span class="faq-icon">+</span>
+                      </div>
+                      <div class="faq-answer">
+                          실거주지임을 입증할 공적자료를 지참하여 방문 신청 가능합니다. 신청한 기간이 지나면 주민등록지로 발송됩니다.
+                      </div>
+                  </div>
+              </section>
+
+          </div>
+        </main>
+    </div>
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">개인정보처리방침</a> | 
+      <a href="#">사이트맵</a> | 
+      <a href="#">이용안내</a>
+      <p>우 03739 서울특별시 서대문구 통일로 97</p>
+      <p>민원전화: 182 (유료)</p>
+      <p>Copyright © 2024 경찰청 All Rights Reserved.</p>
+    </div>
+    <div class="footer-empty-section">
+    </div>
+    <div class="family-site">
+        <h4>패밀리사이트</h4>
+        <select>
+          <option>관련기관 홈페이지 바로가기</option>
+          <option>경찰청</option>
+          <option>도로교통공단</option>
+        </select>
+    </div>
+
+  </footer>
+  
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const categories = document.querySelectorAll(".faq-category");
+      const sections = document.querySelectorAll(".faq-section");
+
+      // 초기 설정: 첫 번째 카테고리를 활성화하고, 첫 번째 섹션만 보이게 설정
+      categories[0].classList.add("active");
+      sections.forEach((section, index) => {
+        section.style.display = index === 0 ? "block" : "none";
+      });
+
+      // 카테고리 클릭 이벤트
+      categories.forEach((category) => {
+        category.addEventListener("click", () => {
+          const target = category.dataset.category;
+
+          categories.forEach((cat) => cat.classList.remove("active"));
+          category.classList.add("active");
+
+          sections.forEach((section) => {
+            section.style.display = section.id === target ? "block" : "none";
+          });
+        });
+      });
+
+      // FAQ 질문 클릭 이벤트
+      const faqQuestions = document.querySelectorAll(".faq-question");
+      faqQuestions.forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector(".faq-icon");
+
+          const isOpen = answer.style.display === "block";
+          answer.style.display = isOpen ? "none" : "block";
+          icon.classList.toggle("open", !isOpen);
+        });
+      });
+    });
+
+  </script>
+</body>
+</html>

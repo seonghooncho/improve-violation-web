@@ -1,0 +1,378 @@
+/* ==============================기본 스타일============================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 0px 20px;
+  border-bottom: 1px solid #ddd;
+  height: 100px;
+
+}
+
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 기본 텍스트 색상과 동일 */
+}
+
+a:hover {
+  color: #475ef0;
+}
+
+/* ==============================헤더============================== */
+
+.logo img {
+  width: 90px;
+  height: auto;
+  padding: 10px;
+}
+
+/* ==============================네비게이션============================== */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 수직 정렬 */
+  height: 100px; /* nav 높이 고정 */
+  padding: 0;
+  position: relative; /* dropdown-box 위치 기준 */
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-item {
+  position: relative;
+  width: 180px;
+  height: 100%; /* nav 높이에 맞춤 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #666666; /* 회색 */
+  font-size: 20px; /* 글자 크기 설정 */
+  font-weight: bold; /* 글자 굵게 설정 */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover a {
+  color: #475ef0;
+}
+
+.nav-item:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #475ef0;
+  transition: width 0.3s ease;
+}
+
+/* ==============================네비게이션 아래 드롭다운바============================== */
+.dropdown-box {
+  display: none;
+  position: absolute;
+  top: 100px; /* Navbar 바로 아래 */
+  left: -10px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px 0px;
+  z-index: 5;
+  border-top: 1px solid #ddd;
+}
+
+.dropdown-column {
+  display: inline-block;
+  width: 180px; /* 각 열 너비 */
+  vertical-align: top;
+  text-align: center;
+
+  padding: 0px 10px;
+  margin: 0px 5px;
+}
+
+.dropdown-column ul {
+  list-style: none;
+
+  padding: 7px 0px;
+  margin: 5px 0px;
+}
+
+.dropdown-column li:first-child a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #666666; /* 회색 */
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px; /* 첫 요소와 나머지 간격 */
+}
+
+.dropdown-column li:not(:first-child) a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #666666; /* 회색 */
+  font-size: 13px;
+  margin: 5px 0; /* li 간 상하 간격 5px */
+  padding:5px;
+}
+
+.dropdown-column li a:hover {
+  color: #004990; /* 마우스 올릴 때 파란색 */
+}
+
+/* Show dropdown on hover */
+.navbar:hover .dropdown-box,
+.dropdown-box:hover {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* ==============================버튼============================== */
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.header-buttons button {
+  background-color: #ffffff;
+  color: rgb(15, 15, 15);
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.header-buttons button:hover {
+  background-color: #a2a2a2;
+}
+/* 검색 바 스타일 */
+.search-bar-container {
+  position: absolute;
+  top: 120px; 
+  right: 40px;
+  display: none;
+  z-index: 3;
+  width: 200px;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-bar input {
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    flex: 1;
+  }
+
+  .search-bar button {
+    background-color: #1f77ce;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+
+  .search-bar button img {
+    width: 18px;
+  }
+
+  /* 화면 어두워지는 오버레이 */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+  }
+
+
+/* ====================================Footer==================================== */
+/* Footer Section */
+.footer {
+  background-color: #e7e7e7;
+  color: #000;
+  padding: 40px 70px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+.footer-links {
+  text-align: left;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-empty-section {
+  text-align: center;
+}
+
+.family-site {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.family-site h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.family-site select {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+/* ===========================서브페이지들 전체 감싸는 div================== */
+
+.main-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  min-height: 80vh;
+}
+
+
+/* =============================서브페이지 사이드바========================== */
+
+    /* 좌측 사이드바 */
+    .sidebar {
+      width: 20%;
+      background-color: #fff;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+      min-height: inherit;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 10px;
+      /* cursor: pointer; */
+      border-bottom: 1px solid #ddd;
+    }
+    
+
+    .sidebar li:hover,
+    .sidebar li.active {
+      background-color: #f0f0f0;
+      font-weight: bold;
+      color: #004990;
+    }
+
+
+    /* 세부 사이드바 */
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .toggle-button {
+      margin-left: auto; /* 버튼을 오른쪽으로 이동 */
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #004990;
+      transition: transform 0.3s ease;
+    }
+    
+    
+    .nested-list {
+      display: none;
+      padding-left: 25px;
+      list-style: none;
+    }
+    
+    .nested-list li {
+      padding: 5px 0;
+    }
+    
+    .nested-list li a {
+      padding-left: 20px;
+      text-decoration: none;
+      color: #666;
+      font-size: 12px;
+    }
+    
+    .nested-list li a:hover {
+      color: #004990;
+    }
+    
+    .toggle-button.open {
+      transform: rotate(45deg);
+    }
+
+
+
+    /* ======================서브페이지 메인 영역======================= */
+
+    
+
+    /* 페이지 제목 */
+    .main-title {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #004990;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }

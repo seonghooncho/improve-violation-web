@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+/* 시작 배너 */
+.banner {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative; /* 화살표 버튼을 배치하기 위해 position 추가 */
+}
+
+.banner-image {
+  width: 100%;
+  object-fit: cover;
+  max-height: 500px;
+}
+
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 10%;
+}
+
+.banner-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* 호버 효과 */
+}
+
+.left-arrow {
+  left: 10px; /* 왼쪽 화살표 위치 */
+}
+
+.right-arrow {
+  right: 10px; /* 오른쪽 화살표 위치 */
+}
+
+
+/* ==============================Services Section============================== */
+.services {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  padding: 10px 50px;
+}
+.services-header h4 {
+  font-weight: bold;
+  margin: 0;
+  text-align: left; /* 좌측 정렬 */
+  padding: 20px;
+}
+
+.service-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  text-align: center;
+  width: 150px;
+  margin: 10px;
+}
+
+.service-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+
+
+/* ==============================Notices Section============================== */
+.notices {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+
+.notices-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 좌측 정렬 */
+  gap: 10px; /* 제목과 이미지 사이 간격 */
+  margin-bottom: 20px;
+}
+
+.notices-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.notices-header .notice-icon {
+  width: 12px; /* 이미지 크기 조정 */
+  height: auto;
+}
+
+.notice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.notice-item {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1 1 calc(30% - 20px); /* 크기 조정 */
+  box-sizing: border-box;
+}
+
+/* ==============================Chatbot Section============================== */
+.chatbot-section {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  padding: 20px;
+}
+
+.chatbot-container {
+  display: flex;
+  align-items: center;
+  background-color: #004990; /* 파란색 배경 */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px; /* 내부 여백 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 25%; /* 화면의 1/4 너비 */
+  margin-right: 0%; /* 오른쪽에서 시작 */
+  max-width: 600px;
+}
+
+.chatbot-text {
+  color: #ffffff; /* 텍스트 하얀색 */
+}
+
+.chatbot-icon {
+  width: 60px;
+  height: auto;
+  margin-right: 15px;
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- Logo Section -->
+    <a href="main.html" class="logo">
+      <img src="Images/logo.jpg" alt="홈 로고">
+    </a>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">위반내역 조회</a></li>
+        <li class="nav-item"><a href="#">이의신청</a></li>
+        <li class="nav-item"><a href="#">면허 확인</a></li>
+        <li class="nav-item"><a href="#">서비스 신청</a></li>
+        <li class="nav-item"><a href="#">고객센터</a></li>
+
+      </ul>
+      <!-- Dropdown content -->
+      <div class="dropdown-box">
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="recentCrackdown.html">최근 단속내역</a></li>
+            </ul>
+          <ul>
+            <li><a href="#">미납 이력</a></li>
+            <li><a href="#">미납 과태료</a></li>
+            <li><a href="#">미납 범칙금</a></li>
+            
+          </ul>
+          <ul>
+            <li><a href="#">납입 이력</a></li>
+            <li><a href="#">기납 과태료</a></li>
+            <li><a href="#">기납 범칙금</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">교통사고 사실확인</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="#">과태료 이의신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">범칙금 이의신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">이중납부 환급신청</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">법인 신청</a></li>
+            </ul>
+          </div>
+        <div class="dropdown-column">
+            <ul>
+                <li><a href="#">면허증 진위확인</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">벌점 확인</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">면허제재 이력</a></li>
+              <li><a href="#">면허정지 기간</a></li>
+              <li><a href="#">면허결격 기간</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">결격사유 공고</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="#">착한운전 마일리지</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">교통사고 조사예약</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">문자 알림 서비스</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">모바일전자고지 안내</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">공인전자주소 안내</a></li>
+          </ul>
+        </div>
+        <div class="dropdown-column">
+          <ul>
+            <li><a href="notice.html">공지사항</a></li>
+          </ul>
+          <ul>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">사이트맵</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">이파인 궁금이 챗봇</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Right Section (Login, Search, Menu) -->
+    <div class="header-buttons">
+      <button class="login-btn" style="font-size: 15px;">로그인</button>
+      <button class="search-btn">
+        <img src="Images/icon_search.png" alt="검색" class="search-icon" width="30px">
+      </button>
+      <button class="search-btn">
+        <img src="Images/icon_menubar.png" alt="메뉴" class="search-icon" width="30px">
+      </button>
+    </div>
+  </header>
+   <!-- 검색 바 -->
+   <div class="search-bar-container" id="search-bar">
+    <div class="search-bar">
+      <input type="text" placeholder="검색어를 입력하세요...">
+      <button>
+        <img src="Images/icon_search.png" alt="검색">
+      </button>
+    </div>
+  </div>
+  <!-- 화면 어두워지는 오버레이 -->
+  <div class="overlay" id="overlay"></div>
+
+ <!-- ================================== main ==================================== -->
+ <main>
+    <!-- Banner Section -->
+    <section class="banner">
+        <button class="banner-arrow left-arrow">&lt;</button>
+        <img src="Images/banner1.jpg" alt="배너 이미지" class="banner-image">
+        <button class="banner-arrow right-arrow">&gt;</button>
+      </section>
+      
+
+    <!-- Services Section -->
+    <section class="services">
+      <div class="services-header">
+        <h4>자주찾는 서비스</h4>
+      </div>
+      <div class="service-icons">
+        <a href="#" class="service-item">
+          <img src="Images/button1.png" alt="최근납부내역">
+          <p>최근납부내역</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button2.png" alt="미납과태료">
+          <p>미납과태료</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button3.png" alt="미납범칙금">
+          <p>미납범칙금</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button4.png" alt="교통사고사실확인">
+          <p>교통사고 사실확인</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button5.png" alt="운전면허조회">
+          <p>운전면허조회</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button6.png" alt="착한운전 마일리지">
+          <p>착한운전 마일리지</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button7.png" alt="문자 알림 서비스">
+          <p>문자 알림 서비스</p>
+        </a>
+        <a href="#" class="service-item">
+          <img src="Images/button8.png" alt="모바일전자고지 안내">
+          <p>모바일전자고지 안내</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Notices Section -->
+    <section class="notices">
+        <div class="notices-header">
+          <h2>공지사항</h2>
+          <a href="notice.html"><img src="Images/togo.png" alt="공지사항 아이콘" class="notice-icon"></a>
+        </div>
+        <div class="notice-list">
+          <a href="#" class="notice-item">
+            <h3>2024.11.28</h3>
+            <p>교통민원24 과태료·범칙금 납부서비스가 중단됩니다.</p>
+            <p>중단사유: 정기 점검 작업</p>
+            <p>중단시간: 2024.11.28 01:00 ~ 05:00</p>
+          </a>
+          <a href="#" class="notice-item">
+            <h3>2024.11.29</h3>
+            <p>새로운 기능이 추가되었습니다.</p>
+            <p>추가된 기능: 모바일 알림 서비스 개선</p>
+            <p>적용일: 2024.11.29</p>
+          </a>
+          <a href="#" class="notice-item">
+            <h3>2024.12.01</h3>
+            <p>홈페이지 서버 증설 작업 예정</p>
+            <p>작업시간: 2024.12.01 02:00 ~ 06:00</p>
+          </a>
+        </div>
+      </section>
+      
+
+    <!-- Chatbot Section -->
+    <section class="chatbot-section">
+      <a href="#" class="chatbot-container">
+        <img src="Images/chat-bot.png" alt="챗봇 아이콘" class="chatbot-icon">
+        <div class="chatbot-text">
+          <h3>이파인 궁금이 서비스</h3>
+          <p>궁금한 업무정보가 가능합니다.</p>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">개인정보처리방침</a> | 
+      <a href="#">사이트맵</a> | 
+      <a href="#">이용안내</a>
+      <p>우 03739 서울특별시 서대문구 통일로 97</p>
+      <p>민원전화: 182 (유료)</p>
+      <p>Copyright © 2024 경찰청 All Rights Reserved.</p>
+    </div>
+    <div class="footer-empty-section">
+    </div>
+    <div class="family-site">
+        <h4>패밀리사이트</h4>
+        <select>
+          <option>관련기관 홈페이지 바로가기</option>
+          <option>경찰청</option>
+          <option>도로교통공단</option>
+        </select>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = ["Images/banner1.jpg", "Images/banner2.png", "Images/banner3.png"]; // 사용할 이미지 경로
+      let currentIndex = 0; // 현재 이미지 인덱스
+
+      const bannerImage = document.querySelector(".banner-image");
+      const leftArrow = document.querySelector(".left-arrow");
+      const rightArrow = document.querySelector(".right-arrow");
+
+      // 이미지 변경 함수
+      function changeImage(index) {
+        bannerImage.src = images[index];
+      }
+
+      // 왼쪽 화살표 클릭 이벤트
+      leftArrow.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // 순환 로직
+        changeImage(currentIndex);
+      });
+
+      // 오른쪽 화살표 클릭 이벤트
+      rightArrow.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length; // 순환 로직
+        changeImage(currentIndex);
+      });
+    });
+  </script>
+</body>
+</html>
